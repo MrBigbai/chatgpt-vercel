@@ -14,8 +14,9 @@ export const prerender = true
       onclick="scrollToTop()"
     >
       <span
-        class="text-transparent font-extrabold bg-clip-text bg-gradient-to-r dark:from-yellow-300 from-yellow-600 dark:to-red-700 to-red-700 mr-1"
-        >ChatGPT</span
+        class="text-transparent font-extrabold bg-clip-text bg-gradient-to-r from-yellow-600 to-red-700 mr-1"
+        id="title"
+      >ChatGPT</span
       >
     </div>
     <ThemeToggle />
@@ -29,6 +30,23 @@ export const prerender = true
       behavior: "smooth"
     })
   }
+
+  window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e) {
+    const title = document.getElementById("title");
+    if (e.matches) {
+      // 用户设备为暗色主题
+      title.classList.remove("dark:from-yellow-300");
+      title.classList.remove("dark:to-red-700");
+      title.classList.add("dark:from-blue-400");
+      title.classList.add("dark:to-purple-600");
+    } else {
+      // 用户设备为亮色主题
+      title.classList.remove("dark:from-blue-400");
+      title.classList.remove("dark:to-purple-600");
+      title.classList.add("dark:from-yellow-300");
+      title.classList.add("dark:to-red-700");
+    }
+  });
 </script>
 
 <style is:inline>
@@ -65,5 +83,9 @@ export const prerender = true
   }
   .after #message-container {
     opacity: 1;
+  }
+  /* 设置暗色主题下的标题颜色 */
+  .dark #title {
+    background-image: linear-gradient(to right, #4f46e5, #a15bb8, #fe8c00);
   }
 </style>
