@@ -10,7 +10,8 @@ export const defaultSetting = {
   model: "gpt-3.5-turbo" as Model
 }
 
-export const defaultMessage = `- 联系站长Mr Bai获取密码
+export const defaultMessage = `- 您好，我知无不言，同时也是一个潘多拉宝盒。
+- 联系站长Mr Bai获取密码
 - [[Shift]] + [[Enter]] 换行。开头输入 [[/]] 或者 [[空格]] 搜索 Prompt 预设。[[↑]] 可编辑最近一次提问。点击顶部名称滚动到顶部，点击输入框滚动到底部。`
 
 export type Setting = typeof defaultSetting
